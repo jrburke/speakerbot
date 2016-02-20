@@ -49,8 +49,6 @@ CTRL+C can be used to stop it
 
 ## Future improvements
 
-I want the bot to speak via a local machine "say" command whatever is typed to it depending on some matching condition. Maybe any direct message to it would do the speaking.
-
-I also want to explore alternate Hubot adapters, to get it to work with IRC or other messaging services.
-
-I also want to clean up the Makefile/Docker branching on the arm vs x86 stuff worked out.
+* Get the bot to speak via a local machine "say" command whatever is typed to it depending on some matching condition. Maybe any direct message to it would do the speaking.
+* Explore alternate Hubot adapters, to get it to work with IRC or other messaging services.
+* Clean up the Makefile/Docker branching on the arm vs x86 stuff worked out.
