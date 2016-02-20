@@ -1,6 +1,6 @@
 # speakerbot
-'
-A chat bot that lives in a docker container. Skeleton generated via [generator-hubot][generator-hubot], app-specific code is in scripts/speakerbot.js.
+
+A chat bot that lives in a docker container. Skeleton generated via [generator-hubot](https://github.com/github/generator-hubot), app-specific code is in scripts/speakerbot.js.
 
 Right now it just connects to [Slack](https://slack.com), and if you private message it "I like pie" it responds with "makes a freshly baked pie".
 
@@ -24,9 +24,9 @@ Building of the docker image and running it is done by the Makefile.
 
 ## Makefile
 
-The Makefile has the commands to do the docker work. It is not very elegant right now, I need to detect the architecture then just have one set of make commands, but for now, the make commands are different for the rpi2 and x86 setups:
+The Makefile has the commands to do the docker work. It is not very elegant right now, I need to detect the architecture then just have one set of make commands, but for now, the make commands are different for the rpi2 and x86 setup.
 
-The main reason a Makefile is used at all is because I wanted the docker file to use a different FROM for each case. If that can be done in some other way, it would be nice to know.
+The main reason a Makefile is used at all: I want the docker file to use a different FROM for each case. If that can be done in some other way, I am open to changing the approach.
 
 ### x86
 
@@ -38,7 +38,7 @@ make run
 CTRL+C can be used to stop it
 
 
-### arm (rpi2 specifically)
+### rpi2
 
 ```
 make build-arm
@@ -49,7 +49,7 @@ CTRL+C can be used to stop it
 
 ## Future improvements
 
-I want the bot to speak something typed to it depending on some matching condition. Maybe any direct message to it would do the speaking.
+I want the bot to speak via a local machine "say" command whatever is typed to it depending on some matching condition. Maybe any direct message to it would do the speaking.
 
 I also want to explore alternate Hubot adapters, to get it to work with IRC or other messaging services.
 
