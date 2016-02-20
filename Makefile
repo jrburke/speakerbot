@@ -1,16 +1,19 @@
 
-Dockerfile.arm: Dockerfile.arm.in app.docker
-	cat Dockerfile.arm.in app.docker > Dockerfile.arm
-	cp Dockerfile.arm Dockerfile
+DOCKER_FROM = Dockerfile.arm.in
+ifeq ($(PROCESSOR_ARCHITECTURE),x86)
+	DOCKER_FROM = Dockerfile.x86.in
+endif
 
-Dockerfile.x86: Dockerfile.x86.in app.docker
-	cat Dockerfile.x86.in app.docker > Dockerfile.x86
-	cp Dockerfile.x86 Dockerfile
+DOCKER_FROM = Dockerfile.x86.in
+UNAME_M := $(shell uname -m)
+ifeq ($(UNAME_M),armv7l)
+	DOCKER_FROM = Dockerfile.arm.in
+endif
 
-build-arm: Dockerfile.arm
-	docker build -t speakerbot .
+Dockerfile: $(DOCKER_FROM) app.docker
+	cat $(DOCKER_FROM) app.docker > Dockerfile
 
-build-x86: Dockerfile.x86
+build: Dockerfile
 	docker build -t speakerbot .
 
 run:

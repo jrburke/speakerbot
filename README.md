@@ -24,24 +24,10 @@ Building of the docker image and running it is done by the Makefile.
 
 ## Makefile
 
-The Makefile has the commands to do the docker work. It is not very elegant right now, I need to detect the architecture then just have one set of make commands, but for now, the make commands are different for the rpi2 and x86 setup.
-
-The main reason a Makefile is used at all: I want the docker file to use a different FROM for each case. If that can be done in some other way, I am open to changing the approach.
-
-### x86
+The Makefile has the commands to do the docker work because I want the docker file to use a different FROM for the arm7/rpi2 case vs x86 computers. If that can be done in some other way, I am open to changing the approach.
 
 ```
-make build-x86
-make run
-```
-
-CTRL+C can be used to stop it
-
-
-### rpi2
-
-```
-make build-arm
+make build
 make run
 ```
 
@@ -51,4 +37,3 @@ CTRL+C can be used to stop it
 
 * Get the bot to speak via a local machine "say" command whatever is typed to it depending on some matching condition. Maybe any direct message to it would do the speaking.
 * Explore alternate Hubot adapters, to get it to work with IRC or other messaging services.
-* Clean up the Makefile/Docker branching on the arm vs x86 stuff worked out.
